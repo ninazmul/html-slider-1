@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lactogen</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./assets/bg.png');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slider-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            position: relative;
+            height: auto;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .custom-arrow {
+            position: absolute;
+            top: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: rgba(17, 0, 255, 0.5);
+            border: none;
+            padding: 10px;
+            outline: none;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .custom-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .pagination {
+            position: absolute;
+            bottom: 30px;
+            left: 10%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+        }
+
+        .page {
+            height: 25px;
+            width: 25px;
+            margin: 0 5px;
+            background-color: #4b4b4b; /* Blue color */
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+        }
+
+        .page.active {
+            background-color: #464ac3; /* Darker blue for active page */
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .slides {
+                height: auto;
+            }
+
+            .pagination {
+                display: none; /* Hide pagination on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slides">
+        <div class="slide"><!-- Your custom content for slide 1 here --></div>
+        <div class="slide"><!-- Your custom content for slide 2 here --></div>
+        <div class="slide"><!-- Your custom content for slide 3 here --></div>
+        <!-- Add more slides as needed -->
+    </div>
+
+    <button class="custom-arrow prev">&#10094;</button>
+    <button class="custom-arrow next">&#10095;</button>
+
+    <div class="pagination">
+        <span class="page active">1</span>
+        <span class="page">2</span>
+        <span class="page">3</span>
+        <!-- Add more pages as needed -->
+    </div>
+</div>
+
+<script>
+    const slides = document.querySelector('.slides');
+    const pages = document.querySelectorAll('.page');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        slides.style.transform = `translateX(${-index * 100}%)`;
+        updatePages(index);
+    }
+
+    function updatePages(index) {
+        pages.forEach((page, i) => {
+            page.classList.toggle('active', i === index);
+        });
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + 3) % 3;
+        showSlide(currentIndex);
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % 3;
+        showSlide(currentIndex);
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    pages.forEach((page, i) => {
+        page.addEventListener('click', () => {
+            currentIndex = i;
+            showSlide(currentIndex);
+        });
+    });
+
+    // Initial display
+    showSlide(currentIndex);
+</script>
+
+</body>
+</html>
