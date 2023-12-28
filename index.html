@@ -312,6 +312,91 @@
             padding-left: 17rem;
         }
 
+        body, html {
+    transition: background-image 0.5s ease-in-out;
+}
+
+.slides {
+    transition: transform 0.5s ease-in-out;
+}
+
+.custom-arrow {
+    transition: background-color 0.3s ease;
+}
+
+.page {
+    transition: background-color 0.3s ease;
+};
+
+.character1,
+.character2,
+.character3,
+.character4,
+.character5,
+.character6,
+.character7,
+.p1img,
+.p3globe,
+.p4globe,
+.p5globe,
+.p6globe,
+.page6bar,
+.lactogen,
+.st1,
+.st2,
+.st3,
+.st4,
+.st5,
+.st6,
+.p7btn,
+.p8lac,
+.p8lt,
+.p8t {
+    animation: moveElement 10s linear infinite;
+}
+
+.character1,
+.character2,
+.character3,
+.character4,
+.character5,
+.character6,
+.character7 {
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.character1:hover,
+.character2:hover,
+.character3:hover,
+.character4:hover,
+.character5:hover,
+.character6:hover,
+.character7:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+
+@keyframes moveElement {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
         /* Responsive Styles */
         @media screen and (max-width: 768px) {
             .slides {
