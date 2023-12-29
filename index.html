@@ -14,7 +14,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-image: url('./assets/bg.png');
+            background-image: url('./assets/bg\ full.png');
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
@@ -33,9 +33,45 @@
             height: auto;
         }
 
-        .slide {
+        .slide1 {
             min-width: 100%;
             box-sizing: border-box;
+            position: relative;
+        }
+        .slide2 {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .slide3 {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .slide4 {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .slide5 {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .slide6 {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .slide7 {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .slide8 {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
         }
 
         .custom-arrow {
@@ -106,11 +142,12 @@
         }
 
         .p1bg1 {
-            width: 105%;
+            width: 101%;
             height: 92%;
             position: absolute;
-            z-index: -1;
+            z-index: -2;
             left: -10px;
+            overflow-x: hidden;
         }
 
         .p1h1 {
@@ -132,17 +169,16 @@
         .p1img {
             height: 250px;
             position: absolute;
-            top: 2rem;
-            left: 38%;
+            top: 5%;
+            left: 39%;
         }
 
         .p1t1 {
-            padding: 0px 250px;
+            padding: 0px 290px;
             text-align: justify;
             position: absolute;
             color: white;
-            top: 12rem;
-            padding-bottom: 50px;
+            top: 30%;
         }
 
         .lactogen{
@@ -275,8 +311,23 @@
             z-index: 1;
         }
 
-        .btn7{
-            width: 150px;
+        .btn71{
+            width: 40%;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn72{
+            width: 40%;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn73{
+            width: 40%;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn74{
+            width: 40%;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
@@ -288,9 +339,7 @@
         .p7btn{
             display: flex;
             justify-items: center;
-            align-items: center;
-            padding-left: 25%;
-            padding-top: 25px;
+            padding: 2% 10%;
         }
 
         .p8{
@@ -315,6 +364,26 @@
         .p8t{
             width: 800px;
             padding-left: 17rem;
+        }
+
+        .btnflex{
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .t71{
+            width: 30%;
+        }
+        .t72{
+            width: 25%;
+        }
+        .t73{
+            width: 30%;
+        }
+        .t74{
+            width: 35%;
         }
 
         body, html {
@@ -382,6 +451,40 @@
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
+/* Add this style to hide st1 and bdMap by default */
+.st1, .bdMap, .page6bar {
+    display: none;
+}
+
+.character2 {
+  animation: fadeInCharacter2 1s ease-in-out forwards; /* Fade in character2 */
+}
+
+.st2 {
+  animation: fadeInSt2 1s ease-in-out 1s forwards; /* Fade in st2 after 1 second */
+}
+
+.p3globe {
+  animation: fadeInP3globe 1s ease-in-out 2s forwards; /* Fade in p3globe after 2 seconds */
+}
+
+@keyframes fadeInCharacter2 {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInSt2 {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInP3globe {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
 
 @keyframes moveElement {
     0% {
@@ -402,26 +505,67 @@
 }
 
 
-        /* Responsive Styles */
+         /* Responsive Styles */
         @media screen and (max-width: 768px) {
-            .slides {
-                height: auto;
+            /* Adjust specific elements for smaller screens */
+            .p1h1,
+            .p1h2,
+            .p1img,
+            .p1t1,
+            .p1bg1,
+            .character1,
+            .character2,
+            .character3,
+            .character4,
+            .character5,
+            .character6,
+            .character7,
+            .p3globe,
+            .p4globe,
+            .p5globe,
+            .p6globe,
+            .page6bar,
+            .lactogen,
+            .st1,
+            .st2,
+            .st3,
+            .st4,
+            .st5,
+            .st6,
+            .p7btn,
+            .p8lac,
+            .p8lt,
+            .p8t {
+                width: 100%;
+                padding: 20px;
             }
 
-            .pagination {
-                display: none;
+            /* Adjust font size for smaller screens */
+            .p1h1,
+            .p1h2,
+            .p1t1 {
+                font-size: small;
+            }
+
+            /* Adjust arrow size for smaller screens */
+            .custom-arrow {
+                font-size: 18px;
+            }
+
+            /* Adjust page size for smaller screens */
+            .page {
+                height: 20px;
+                width: 20px;
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
-
 <div class="slider-container">
     <div class="slides">
-        <div class="slide">
+        <div class="slide1">
             <div class="p1bg1">
-                <h1 class="p1h1">THERE IS NO SUBSTITUTES OF OR EQUIVALENT TO BREAST-MILK</h1>
-                <h1 class="p1h2">INFORMATION HEALTHCARE PROFESSIONALS ONLY</h1>
                 <img class="p1img" src="./assets/important.png" alt="">
                 <img class="p1bg1" src="./assets/first page blue bg.png" alt="">
                 <p class="p1t1">We believe that breastfeeding is the ideal nutritional start for babies and we fully support the World Health Organization's recommendation of exclusive breastfeeding for the first six months of life followed by the introduction of adequate nutritious complementary foods along with continued breastfeeding up to two years of age.
@@ -434,7 +578,7 @@
                 Infant formula and complementary foods should always be prepared, used and stored as instructed on the label in order to avoid risks to a baby's health.</p>
             </div>
         </div>
-        <div class="slide">
+        <div class="slide2">
             <div class="sec-flex">
                 <div class="sec1">
                 <img class="lactogen" src="./assets/lactogen logo.png" alt="">
@@ -446,7 +590,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide">
+        <div class="slide3">
             <div>
                 <img class="character2" src="./assets/character.png" alt="">
                 <img class="p3globe" src="./assets/page 3 globe.png" alt="">
@@ -455,7 +599,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide">
+        <div class="slide4">
             <div>
                 <img class="character3" src="./assets/character.png" alt="">
                 <img class="p4globe" src="./assets/page 4 earth.png" alt="">
@@ -464,7 +608,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide">
+        <div class="slide5">
             <div>
                 <img class="character4" src="./assets/character.png" alt="">
                 <img class="p5globe" src="./assets/page 5 globe.png" alt="">
@@ -473,7 +617,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide">
+        <div class="slide6">
             <div>
                 <img class="character5" src="./assets/character.png" alt="">
                 <img class="page6bar" src="./assets/page 3 1-4.png" alt="">
@@ -483,19 +627,33 @@
                 </div>
             </div>
         </div>
-        <div class="slide"><div>
+        <div class="slide7">
+            <div>
                 <img class="character6" src="./assets/character.png" alt="">
                 <div>
                     <img class="st6" src="./assets/page 7 text.png" alt="">
                 </div>
                 <div class="p7btn">
-                    <img class="btn7" src="./assets/Icon 1.png" alt="">
-                    <img class="btn7" src="./assets/Icon 2.png" alt="">
-                    <img class="btn7" src="./assets/Icon 3.png" alt="">
-                    <img class="btn7" src="./assets/Icon 4.png" alt="">
+                    <div class="btnflex">
+                        <img class="btn71" src="./assets/Icon 1.png" alt="">
+                        <img class="t71" src="./assets/icon 1 text.png" alt="">
+                    </div>
+                    <div class="btnflex">
+                        <img class="btn72" src="./assets/Icon 2.png" alt="">
+                        <img class="t72" src="./assets/icon 2 text.png" alt="">
+                    </div>
+                    <div class="btnflex">
+                        <img class="btn73" src="./assets/Icon 3.png" alt="">
+                        <img class="t73" src="./assets/icon 3 text.png" alt="">
+                    </div>
+                    <div class="btnflex">
+                        <img class="btn74" src="./assets/Icon 4.png" alt="">
+                        <img class="t74" src="./assets/icon 4 text.png" alt="">
+                    </div>  
                 </div>
-            </div></div>
-        <div class="slide">
+            </div>
+        </div>
+        <div class="slide8">
             <div>
                 <div class="p8">
                     <img class="character7" src="./assets/character.png" alt="">
@@ -525,47 +683,109 @@
 </div>
 
 <script>
-    const slides = document.querySelector('.slides');
-    const pages = document.querySelectorAll('.page');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    document.addEventListener('DOMContentLoaded', function () {
+        const slides = document.querySelector('.slides');
+        const pages = document.querySelectorAll('.page');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const character1 = document.querySelector('.character1');
+        const st1 = document.querySelector('.st1');
+        const bdMap = document.querySelector('.bdMap');
+        const character5 = document.querySelector('.character5');
+        const p6globe = document.querySelector('.p6globe');
+        const page6bar = document.querySelector('.page6bar');
+        const t71 = document.querySelector('.t71');
+        const t72 = document.querySelector('.t72');
+        const t73 = document.querySelector('.t73');
+        const t74 = document.querySelector('.t74');
 
-    let currentIndex = 0;
+        let currentIndex = 0;
 
-    function showSlide(index) {
-        slides.style.transform = `translateX(${-index * 100}%)`;
-        updatePages(index);
-    }
+        function showSlide(index) {
+            slides.style.transform = `translateX(${-index * 100}%)`;
+            updatePages(index);
+        }
 
-    function updatePages(index) {
-        pages.forEach((page, i) => {
-            page.classList.toggle('active', i === index);
-        });
-    }
+        function updatePages(index) {
+            pages.forEach((page, i) => {
+                page.classList.toggle('active', i === index);
+            });
+        }
 
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + pages.length) % pages.length;
-        showSlide(currentIndex);
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % pages.length;
-        showSlide(currentIndex);
-    }
-
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-
-    pages.forEach((page, i) => {
-        page.addEventListener('click', () => {
-            currentIndex = i;
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + pages.length) % pages.length;
             showSlide(currentIndex);
-        });
-    });
+        }
 
-    // Initial display
-    showSlide(currentIndex);
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % pages.length;
+            showSlide(currentIndex);
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        pages.forEach((page, i) => {
+            page.addEventListener('click', () => {
+                currentIndex = i;
+                showSlide(currentIndex);
+            });
+        });
+
+        // Initial display
+        showSlide(currentIndex);
+
+        // Toggle visibility of st1 when clicking on character1
+        character1.addEventListener('click', function () {
+            st1.style.display = (st1.style.display === 'none' || st1.style.display === '') ? 'block' : 'none';
+        });
+
+        // Toggle visibility of bdMap when clicking on st1
+        st1.addEventListener('click', function () {
+            bdMap.style.display = (bdMap.style.display === 'none' || bdMap.style.display === '') ? 'block' : 'none';
+        });
+
+        // Set initial display of page6bar to none
+        page6bar.style.display = 'none';
+
+        // Toggle visibility of page6bar when clicking on p6globe
+        p6globe.addEventListener('click', function () {
+            page6bar.style.display = (page6bar.style.display === 'none' || page6bar.style.display === '') ? 'block' : 'none';
+        });
+
+        // Hide t71-t74 initially
+        t71.style.display = 'none';
+        t72.style.display = 'none';
+        t73.style.display = 'none';
+        t74.style.display = 'none';
+
+       document.querySelector('.btn71').addEventListener('click', function () {
+    showText(t71);
+});
+
+document.querySelector('.btn72').addEventListener('click', function () {
+    showText(t72);
+});
+
+document.querySelector('.btn73').addEventListener('click', function () {
+    showText(t73);
+});
+
+document.querySelector('.btn74').addEventListener('click', function () {
+    showText(t74);
+});
+
+// Helper function to show the selected text and hide others
+function showText(textElement) {
+    [t71, t72, t73, t74].forEach(function (element) {
+        element.style.display = element === textElement ? 'block' : 'none';
+    });
+}
+
+    });
 </script>
+
+
 
 
 </body>
