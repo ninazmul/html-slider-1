@@ -311,6 +311,11 @@
             z-index: 1;
         }
 
+        .p7lt {
+    display: none;
+}
+
+
         .btn71{
             width: 40%;
             cursor: pointer;
@@ -339,7 +344,7 @@
         .p7btn{
             display: flex;
             justify-items: center;
-            padding: 2% 10%;
+            padding: 1% 10%;
         }
 
         .p8{
@@ -353,6 +358,13 @@
         .p8lac{
             height: 200px;
             padding-top: 100px;
+        }
+
+        .p7lt{
+            width: 600px;
+            position: absolute;
+            left: 30%;
+            top: 95%;
         }
 
         .p8lt{
@@ -650,6 +662,9 @@
                         <img class="btn74" src="./assets/Icon 4.png" alt="">
                         <img class="t74" src="./assets/icon 4 text.png" alt="">
                     </div>  
+                    <div>
+                        <img class="p7lt" src="./assets/slide 7 text.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -759,30 +774,63 @@
         t73.style.display = 'none';
         t74.style.display = 'none';
 
-       document.querySelector('.btn71').addEventListener('click', function () {
-    showText(t71);
-});
+       // Select the .p7lt element
+    const p7lt = document.querySelector('.p7lt');
 
-document.querySelector('.btn72').addEventListener('click', function () {
-    showText(t72);
-});
+    // Keep track of clicked buttons
+    const clickedButtons = {
+        btn71: false,
+        btn72: false,
+        btn73: false,
+        btn74: false,
+    };
 
-document.querySelector('.btn73').addEventListener('click', function () {
-    showText(t73);
-});
-
-document.querySelector('.btn74').addEventListener('click', function () {
-    showText(t74);
-});
-
-// Helper function to show the selected text and hide others
-function showText(textElement) {
-    [t71, t72, t73, t74].forEach(function (element) {
-        element.style.display = element === textElement ? 'block' : 'none';
+    // Add click event listeners to the buttons
+    document.querySelector('.btn71').addEventListener('click', function () {
+        showText(t71);
+        markButtonAsClicked('btn71');
     });
-}
 
+    document.querySelector('.btn72').addEventListener('click', function () {
+        showText(t72);
+        markButtonAsClicked('btn72');
     });
+
+    document.querySelector('.btn73').addEventListener('click', function () {
+        showText(t73);
+        markButtonAsClicked('btn73');
+    });
+
+    document.querySelector('.btn74').addEventListener('click', function () {
+        showText(t74);
+        markButtonAsClicked('btn74');
+    });
+
+    // Helper function to show the selected text and hide others
+    function showText(textElement) {
+        [t71, t72, t73, t74].forEach(function (element) {
+            element.style.display = element === textElement ? 'block' : 'none';
+        });
+    }
+
+    // Helper function to mark a button as clicked
+    function markButtonAsClicked(buttonId) {
+        clickedButtons[buttonId] = true;
+
+        // Check if all buttons are clicked
+        const allClicked = Object.values(clickedButtons).every((clicked) => clicked);
+
+        // If all buttons are clicked, show the .p7lt element
+        if (allClicked) {
+            showElement(p7lt);
+        }
+    }
+
+    // Helper function to show an element
+    function showElement(element) {
+        element.style.display = 'block';
+    }
+});
 </script>
 
 
