@@ -113,7 +113,7 @@
             height: 25px;
             width: 25px;
             margin: 0 5px;
-            background-color: #4b4b4b; /* Blue color */
+            background-color: #4b4b4b; 
             border-radius: 50%;
             display: inline-flex;
             justify-content: center;
@@ -124,12 +124,12 @@
         }
 
         .page.active {
-            background-color: #464ac3; /* Darker blue for active page */
+            background-color: #464ac3; 
         }
 
         .p1h1, .p1h2, .p1img, .p1t1, .p1bg1 {
-            opacity: 0; /* Set initial opacity to 0 */
-            animation: fadeIn 1.5s ease-in-out forwards; /* Apply the fadeIn animation */
+            opacity: 0; 
+            animation: fadeIn 1.5s ease-in-out forwards; 
         }
 
         @keyframes fadeIn {
@@ -463,21 +463,20 @@
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Add this style to hide st1 and bdMap by default */
 .st1, .bdMap, .page6bar {
     display: none;
 }
 
 .character2 {
-  animation: fadeInCharacter2 1s ease-in-out forwards; /* Fade in character2 */
+  animation: fadeInCharacter2 1s ease-in-out forwards;
 }
 
 .st2 {
-  animation: fadeInSt2 1s ease-in-out 1s forwards; /* Fade in st2 after 1 second */
+  animation: fadeInSt2 1s ease-in-out 1s forwards; 
 }
 
 .p3globe {
-  animation: fadeInP3globe 1s ease-in-out 2s forwards; /* Fade in p3globe after 2 seconds */
+  animation: fadeInP3globe 1s ease-in-out 2s forwards; 
 }
 
 @keyframes fadeInCharacter2 {
@@ -1132,7 +1131,47 @@
             }
             .pagination{
                 left: 55%;
+            };
+            
+img {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slides > div {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; 
+}
+
+.slides > div.active {
+  opacity: 1;
+}
+
+        .animated-image {
+            animation: moveImage 10s linear infinite;
+        }
+
+        @keyframes moveImage {
+            0% {
+                transform: translateY(0);
             }
+            25% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            75% {
+                transform: translateY(10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
         
 
         }
@@ -1312,37 +1351,29 @@
             });
         });
 
-        // Initial display
         showSlide(currentIndex);
 
-        // Toggle visibility of st1 when clicking on character1
         character1.addEventListener('click', function () {
             st1.style.display = (st1.style.display === 'none' || st1.style.display === '') ? 'block' : 'none';
         });
 
-        // Toggle visibility of bdMap when clicking on st1
         st1.addEventListener('click', function () {
             bdMap.style.display = (bdMap.style.display === 'none' || bdMap.style.display === '') ? 'block' : 'none';
         });
 
-        // Set initial display of page6bar to none
         page6bar.style.display = 'none';
 
-        // Toggle visibility of page6bar when clicking on p6globe
         p6globe.addEventListener('click', function () {
             page6bar.style.display = (page6bar.style.display === 'none' || page6bar.style.display === '') ? 'block' : 'none';
         });
 
-        // Hide t71-t74 initially
         t71.style.display = 'none';
         t72.style.display = 'none';
         t73.style.display = 'none';
         t74.style.display = 'none';
 
-       // Select the .p7lt element
     const p7lt = document.querySelector('.p7lt');
 
-    // Keep track of clicked buttons
     const clickedButtons = {
         btn71: false,
         btn72: false,
@@ -1350,7 +1381,6 @@
         btn74: false,
     };
 
-    // Add click event listeners to the buttons
     document.querySelector('.btn71').addEventListener('click', function () {
         showText(t71);
         markButtonAsClicked('btn71');
@@ -1371,30 +1401,39 @@
         markButtonAsClicked('btn74');
     });
 
-    // Helper function to show the selected text and hide others
     function showText(textElement) {
         [t71, t72, t73, t74].forEach(function (element) {
             element.style.display = element === textElement ? 'block' : 'none';
         });
     }
 
-    // Helper function to mark a button as clicked
     function markButtonAsClicked(buttonId) {
         clickedButtons[buttonId] = true;
 
-        // Check if all buttons are clicked
         const allClicked = Object.values(clickedButtons).every((clicked) => clicked);
 
-        // If all buttons are clicked, show the .p7lt element
         if (allClicked) {
             showElement(p7lt);
         }
     }
 
-    // Helper function to show an element
     function showElement(element) {
         element.style.display = 'block';
-    }
+    };
+
+            const images = document.querySelectorAll('.slide1 img, .slide2 img, .slide3 img, .slide4 img, .slide5 img, .slide6 img, .slide7 img, .slide8 img');
+
+            images.forEach((image) => {
+                image.classList.add('animated-image');
+            });
+
+function activateSlide(slideIndex) {
+  const slides = document.querySelectorAll('.slides > div');
+  slides.forEach((slide, index) => {
+    slide.classList.toggle('active', index === slideIndex);
+  });
+}
+
 });
 </script>
 
@@ -1403,3 +1442,4 @@
 
 </body>
 </html>
+
